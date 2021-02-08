@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .jsx,.js,.ts,.tsx",
     "lint:fix": "eslint src --ext .jsx,.js,.ts,.tsx --fix",
-    "lint:githook": "eslint --ext .jsx,.js,.ts,.tsx --fix --ignore-path .gitignore"
+    "lint:githook": "eslint --ext .jsx,.js,.ts,.tsx --fix --ignore-path .gitignore",
+    "lint:ci": "eslint src --ext .jsx,.js,.ts,.tsx && tsc --noEmit"
   },
   "husky": {
     "hooks": {

@@ -5,6 +5,7 @@ Containing configuration files and example `package.json`.
 - Uses Babel for build - allows you to write "incorrect" Typescript for faster dev cycles. No more commenting out variables you haven't used yet just to try something.s
 - Runs Prettier through Eslint - ensures the two tools don't conflict
 - Uses AirBnB styleguide with Typescript modifications
+- uses `Husky` and `Lint-Staged` to run eslint at commit time
 
 ## VSCode configuration
 
