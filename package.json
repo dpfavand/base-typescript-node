@@ -4,8 +4,47 @@
   "description": "Baseline repo for Typescript with Babel and Eslint configuration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx babel src --out-dir dist --extensions '.ts,.tsx,.js,.jsx' --watch",
+    "run": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --ext .jsx,.js,.ts,.tsx",
+    "lint:fix": "eslint src --ext .jsx,.js,.ts,.tsx --fix",
+    "lint:githook": "eslint --ext .jsx,.js,.ts,.tsx --fix --ignore-path .gitignore"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:githook"
+    ]
   },
   "author": "Daniel Favand <daniel@favand.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "2.1.2",
+    "typescript": "^4.1.2"
+  }
 }
